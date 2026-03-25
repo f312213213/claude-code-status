@@ -1,0 +1,14 @@
+{
+  "name": "claude-code-status",
+  "version": "1.0.0",
+  "description": "Claude Code context & usage monitor — status line + MCP server",
+  "type": "module",
+  "main": "metrics-server.js",
+  "scripts": {
+    "start": "node metrics-server.js",
+    "test": "node test/test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  }
+}
