@@ -5,30 +5,36 @@ Real-time context usage and rate limit tracking for [Claude Code](https://docs.a
 Shows a live status bar at the bottom of your Claude Code session and provides MCP tools for detailed usage analytics.
 
 ```
-[Opus] ● Ctx: 60% ██████░░░░ | 5h: 35% | 7d: 52%
-  120K/200K tokens (in:90000 out:30000)
+Opus 4.6 (1M context) | .../myproject git:(main) +1 ~3 ?1
+░░░░░░░░░░ 20K/200K (8%)  5h █░░░░░░░ 16% ~3h49m  7d █░░░░░░░ 22% ~3d0h
 ```
 
 ## Install
 
+One-liner:
+
 ```bash
-git clone https://github.com/user/claude-code-status.git
-cd claude-code-status
+# Monthly plan (Pro/Max — hides cost, shows rate limits)
+curl -fsSL https://raw.githubusercontent.com/f312213213/claude-code-status/main/remote-install.sh | bash -s -- monthly
 
-# Pick your plan type:
-bash install.sh monthly   # Pro/Max subscription — hides cost, shows rate limits
-bash install.sh usage     # API/pay-per-token — shows cost, all metrics
+# API / pay-per-token (shows cost, all metrics)
+curl -fsSL https://raw.githubusercontent.com/f312213213/claude-code-status/main/remote-install.sh | bash -s -- usage
+```
 
-# Or run without arguments for interactive selection:
-bash install.sh
+Or clone manually:
+
+```bash
+git clone https://github.com/f312213213/claude-code-status.git ~/.claude/plugins/claude-code-status
+cd ~/.claude/plugins/claude-code-status
+bash install.sh monthly   # or: bash install.sh usage
 ```
 
 Then restart Claude Code.
 
-| Plan | Cost | Context | 5h/7d Limits | Token Details | Lines Changed |
-|------|------|---------|--------------|---------------|---------------|
-| `monthly` | hidden | shown | shown | shown (>50%) | hidden |
-| `usage` | shown | shown | shown | shown (>30%) | shown |
+| Plan | Cost | Context | 5h/7d Limits | Git Stats | Lines Changed |
+|------|------|---------|--------------|-----------|---------------|
+| `monthly` | hidden | shown | shown | shown | hidden |
+| `usage` | shown | shown | shown | shown | shown |
 
 You can re-run `bash install.sh <plan>` anytime to switch presets, or edit `config.json` directly.
 
