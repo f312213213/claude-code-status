@@ -96,15 +96,15 @@ case "$PLAN" in
 CONF
     ;;
   usage)
-    echo "→ Plan: usage (cost visible, all metrics shown)"
+    echo "→ Plan: usage (cost visible, no rate limits)"
     cat > "$CONFIG_FILE" << 'CONF'
 {
   "statusline": {
     "layout": "expanded",
     "show_model": true,
     "show_context": true,
-    "show_5h_rate_limit": true,
-    "show_7d_rate_limit": true,
+    "show_5h_rate_limit": false,
+    "show_7d_rate_limit": false,
     "show_git": true,
     "show_project": true,
     "show_cost": true,
