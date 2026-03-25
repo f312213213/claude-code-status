@@ -47,17 +47,18 @@ PLAN=$(echo "$PLAN" | tr '[:upper:]' '[:lower:]')
 
 case "$PLAN" in
   monthly)
-    echo "→ Plan: monthly (cost hidden, rate limits visible)"
+    echo "→ Plan: monthly (cost hidden, rate limits + reset timers visible)"
     cat > "$CONFIG_FILE" << 'EOF'
 {
   "statusline": {
-    "show_cost": false,
+    "layout": "expanded",
+    "show_model": true,
     "show_context": true,
     "show_5h_rate_limit": true,
     "show_7d_rate_limit": true,
-    "show_model": true,
-    "show_token_details": true,
-    "token_details_threshold": 50,
+    "show_git": true,
+    "show_project": true,
+    "show_cost": false,
     "show_lines_changed": false
   }
 }
@@ -68,13 +69,14 @@ EOF
     cat > "$CONFIG_FILE" << 'EOF'
 {
   "statusline": {
-    "show_cost": true,
+    "layout": "expanded",
+    "show_model": true,
     "show_context": true,
     "show_5h_rate_limit": true,
     "show_7d_rate_limit": true,
-    "show_model": true,
-    "show_token_details": true,
-    "token_details_threshold": 30,
+    "show_git": true,
+    "show_project": true,
+    "show_cost": true,
     "show_lines_changed": true
   }
 }
